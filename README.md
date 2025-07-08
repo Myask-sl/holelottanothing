@@ -3,7 +3,7 @@ released under MIT license
 
 No mixins required.
 
-Adds the void world gen from later versions of MC to 1.7.10.
+Adds the void world gen (and void biome and start platform, size/placement configurable) from later versions of MC to 1.7.10.
 
 It's a different world type rather than a superflat preset as vanilla did it.
 
