@@ -10,14 +10,18 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 
-@Mod(modid = HoleLottaNothing.MODID, version = Tags.VERSION, name = HoleLottaNothing.MODNAME, acceptedMinecraftVersions = "["+Tags.MINECRAFT_VERSION+"]")
+@Mod(
+    modid = HoleLottaNothing.MODID,
+    version = Tags.VERSION,
+    name = HoleLottaNothing.MODNAME,
+    acceptedMinecraftVersions = "[" + Tags.MINECRAFT_VERSION + "]")
 public class HoleLottaNothing {
 
     public static final String MODID = Tags.MODID;
     public static final String MODNAME = Tags.MODNAME;
     public static final Logger LOG = LogManager.getLogger(MODID);
 
-    @SidedProxy(clientSide = Tags.MODGROUP+".ClientProxy", serverSide = Tags.MODGROUP+".CommonProxy")
+    @SidedProxy(clientSide = Tags.MODGROUP + ".ClientProxy", serverSide = Tags.MODGROUP + ".CommonProxy")
     public static CommonProxy proxy;
 
     @Mod.EventHandler
@@ -27,21 +31,15 @@ public class HoleLottaNothing {
         proxy.preInit(event);
     }
 
-    @Mod.EventHandler
+    // @Mod.EventHandler
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
-    public void init(FMLInitializationEvent event) {
-        proxy.init(event);
-    }
+    // public void init(FMLInitializationEvent event) { proxy.init(event); }
 
-    @Mod.EventHandler
+    // @Mod.EventHandler
     // postInit "Handle interaction with other mods, complete your setup based on this." (Remove if not needed)
-    public void postInit(FMLPostInitializationEvent event) {
-        proxy.postInit(event);
-    }
+    // public void postInit(FMLPostInitializationEvent event) { proxy.postInit(event); }
 
-    @Mod.EventHandler
+    // @Mod.EventHandler
     // register server commands in this event handler (Remove if not needed)
-    public void serverStarting(FMLServerStartingEvent event) {
-        proxy.serverStarting(event);
-    }
+    // public void serverStarting(FMLServerStartingEvent event) { proxy.serverStarting(event); }
 }

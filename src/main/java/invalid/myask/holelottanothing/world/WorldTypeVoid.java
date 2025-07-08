@@ -1,21 +1,17 @@
 package invalid.myask.holelottanothing.world;
 
+import java.util.Random;
+
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.layer.GenLayer;
 
-import java.util.Random;
-
 public class WorldTypeVoid extends WorldType {
+
     public static WorldType VOID;
-    /**
-     * Creates a new world type, the ID is hidden and should not be referenced by modders.
-     * It will automatically expand the underlying workdType array if there are no IDs left.
-     *
-     * @param name
-     */
+
     public WorldTypeVoid(String name) {
         super(name);
     }
@@ -32,7 +28,7 @@ public class WorldTypeVoid extends WorldType {
 
     @Override
     public int getMinimumSpawnHeight(World world) {
-        return 4; //maybelater: tall world
+        return 4; // maybelater: tall world
     }
 
     @Override
@@ -51,13 +47,13 @@ public class WorldTypeVoid extends WorldType {
     }
 
     @Override
-    public WorldChunkManager getChunkManager(World world) { //TODO
+    public WorldChunkManager getChunkManager(World world) { // TODO
         return super.getChunkManager(world);
     }
 
     @Override
     public boolean isCustomizable() {
-        return false; //maybelater: allow moving platform
+        return false; // maybelater: allow moving platform
     }
 
     @Override

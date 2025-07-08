@@ -3,6 +3,7 @@ package invalid.myask.holelottanothing.world;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class BiomeGenVoid extends BiomeGenBase {
+
     public static final BiomeGenBase.Height voidHeight = new BiomeGenBase.Height(-5, 0);
     public static BiomeGenVoid voidBiomeInstance;
 

@@ -1,18 +1,21 @@
 package invalid.myask.holelottanothing.world;
 
-import invalid.myask.holelottanothing.Config;
+import java.util.Random;
+
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.*;
 
-import java.util.Random;
+import invalid.myask.holelottanothing.Config;
 
 public class MapGenStructurePlatform extends MapGenStructure {
+
     static {
         MapGenStructureIO.registerStructure(PlatformStart.class, "VoidStartPlatform");
         MapGenStructureIO.func_143031_a(PlatformComponent.class, "VoidStartPlatformComponent");
     }
+
     @Override
     public String func_143025_a() {
         return "VoidStartPlatform";
@@ -20,8 +23,8 @@ public class MapGenStructurePlatform extends MapGenStructure {
 
     @Override
     protected boolean canSpawnStructureAtCoords(int chunkX, int chunkZ) {
-        return chunkX == Config.centerX / 16 && chunkZ == Config.centerZ / 16 &&
-            worldObj.getBiomeGenForCoords(Config.centerX, Config.centerZ) == BiomeGenVoid.voidBiomeInstance;
+        return chunkX == Config.centerX / 16 && chunkZ == Config.centerZ / 16
+            && worldObj.getBiomeGenForCoords(Config.centerX, Config.centerZ) == BiomeGenVoid.voidBiomeInstance;
     }
 
     @Override
@@ -30,6 +33,7 @@ public class MapGenStructurePlatform extends MapGenStructure {
     }
 
     public class PlatformStart extends StructureStart {
+
         public PlatformStart() {
             components.add(new PlatformComponent());
             updateBoundingBox();
@@ -37,6 +41,7 @@ public class MapGenStructurePlatform extends MapGenStructure {
     }
 
     public class PlatformComponent extends StructureComponent {
+
         PlatformComponent() {
             boundingBox = new StructureBoundingBox(
                 Config.centerX - Config.widthX, Config.centerY - Config.widthY, Config.centerZ - Config.widthZ,

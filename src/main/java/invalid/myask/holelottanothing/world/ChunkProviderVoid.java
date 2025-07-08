@@ -1,5 +1,10 @@
 package invalid.myask.holelottanothing.world;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
@@ -11,15 +16,13 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.structure.MapGenStructure;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 public class ChunkProviderVoid implements IChunkProvider {
+
     protected World worldObj;
     protected Random rNG;
     protected MapGenStructure platform;
     protected boolean features;
+
     public ChunkProviderVoid(World world, long seed, boolean features) {
         this.worldObj = world;
         rNG = new Random(seed);
@@ -37,17 +40,12 @@ public class ChunkProviderVoid implements IChunkProvider {
         Block[] blockArray = new Block[65536];
         byte[] biomeArray = new byte[65536];
 
-
-        for (int i = 0; i < biomeArray.length; i++)
-        {
-            blockArray[i] = Blocks.air;
-            biomeArray[i] = (byte) BiomeGenVoid.voidBiomeInstance.biomeID;
-        }
+        Arrays.fill(blockArray, Blocks.air);
+        Arrays.fill(biomeArray, (byte) BiomeGenVoid.voidBiomeInstance.biomeID);
 
         Chunk empty = new Chunk(this.worldObj, blockArray, biomeArray, chunkX, chunkZ);
 
-        if (features)
-            platform.func_151539_a(this, this.worldObj, chunkX, chunkZ, (Block[])null);
+        if (features) platform.func_151539_a(this, this.worldObj, chunkX, chunkZ, (Block[]) null);
         return empty;
     }
 
@@ -58,8 +56,7 @@ public class ChunkProviderVoid implements IChunkProvider {
 
     @Override
     public void populate(IChunkProvider chunkProvider, int chunkX, int chunkZ) {
-        if (features)
-            platform.generateStructuresInChunk(worldObj, rNG, chunkX, chunkZ);
+        if (features) platform.generateStructuresInChunk(worldObj, rNG, chunkX, chunkZ);
     }
 
     @Override
@@ -88,8 +85,9 @@ public class ChunkProviderVoid implements IChunkProvider {
     }
 
     @Override
-    public ChunkPosition func_147416_a(World p_147416_1_, String p_147416_2_, int p_147416_3_, int p_147416_4_, int p_147416_5_) {
-        return null; //closest structure
+    public ChunkPosition func_147416_a(World p_147416_1_, String p_147416_2_, int p_147416_3_, int p_147416_4_,
+        int p_147416_5_) {
+        return null; // closest structure
     }
 
     @Override
