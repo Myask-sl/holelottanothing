@@ -63,7 +63,7 @@ public class MapGenStructurePlatform extends MapGenStructure {
             coordBaseMode = -1;
             fillWithBlocks(world, sBB, boundingBox.minX, boundingBox.minY, boundingBox.minZ,
                 boundingBox.maxX, boundingBox.maxY, boundingBox.maxZ,
-                Blocks.stone, Blocks.obsidian, false); //second isn't REPLACEblock, it's FILL.
+                Blocks.stone, Blocks.stone, false); //second isn't REPLACEblock, it's FILL.
             placeBlockAtCurrentPosition(world, Blocks.cobblestone, 0, Config.centerX, Config.centerY, Config.centerZ, sBB);
             return true;
         }
