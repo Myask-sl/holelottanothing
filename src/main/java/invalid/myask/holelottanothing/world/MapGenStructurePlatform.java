@@ -32,7 +32,7 @@ public class MapGenStructurePlatform extends MapGenStructure {
         return new PlatformStart();
     }
 
-    public class PlatformStart extends StructureStart {
+    public static class PlatformStart extends StructureStart {
 
         public PlatformStart() {
             components.add(new PlatformComponent());
@@ -40,9 +40,9 @@ public class MapGenStructurePlatform extends MapGenStructure {
         }
     }
 
-    public class PlatformComponent extends StructureComponent {
+    public static class PlatformComponent extends StructureComponent {
 
-        PlatformComponent() {
+        public PlatformComponent() {
             boundingBox = new StructureBoundingBox(
                 Config.centerX - Config.widthX, Config.centerY - Config.widthY, Config.centerZ - Config.widthZ,
                 Config.centerX + Config.widthX, Config.centerY + Config.widthY, Config.centerZ + Config.widthZ);
