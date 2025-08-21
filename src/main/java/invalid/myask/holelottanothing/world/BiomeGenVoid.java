@@ -13,6 +13,10 @@ public class BiomeGenVoid extends BiomeGenBase {
         rainfall = 0.5F;
         setDisableRain();
         waterColorMultiplier = 0x3F_76_E4;
+        spawnableCaveCreatureList.clear();
+        spawnableCreatureList.clear();
+        spawnableMonsterList.clear();
+        spawnableWaterCreatureList.clear();
     }
 
     public BiomeGenVoid(int id, boolean register) {
