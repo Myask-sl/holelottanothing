@@ -38,12 +38,14 @@ public class ChunkProviderVoid implements IChunkProvider {
     @Override
     public Chunk provideChunk(int chunkX, int chunkZ) {
         Block[] blockArray = new Block[65536];
-        byte[] biomeArray = new byte[65536];
-
         Arrays.fill(blockArray, Blocks.air);
-        Arrays.fill(biomeArray, (byte) BiomeGenVoid.voidBiomeInstance.biomeID);
 
-        Chunk empty = new Chunk(this.worldObj, blockArray, biomeArray, chunkX, chunkZ);
+        Chunk empty = new Chunk(this.worldObj, blockArray, chunkX, chunkZ);
+
+        byte[] biomeArray = empty.getBiomeArray();
+        for (int i = 0; i < biomeArray.length; ++i) {
+            biomeArray[i] = (byte)BiomeGenVoid.voidBiomeInstance.biomeID; //could also happen.
+        }
 
         if (features) platform.func_151539_a(this, this.worldObj, chunkX, chunkZ, (Block[]) null);
         return empty;
